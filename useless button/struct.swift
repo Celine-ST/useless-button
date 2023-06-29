@@ -9,7 +9,9 @@ import Foundation
 
 struct move {
     var image: String
-    var xOffset: Int
-    var yOffset: Int
+    var xOffset: Double
+    var yOffset: Double
+    var width: Double
+    var height: Double
     var spin: Int
 }
