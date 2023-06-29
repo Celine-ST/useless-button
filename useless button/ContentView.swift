@@ -4,6 +4,12 @@
 //
 //  Created by Celine Quek on 24/6/23.
 //
+/* hii so um we can put some ideas for ways to unpress the button here
+
+ - cloud comes and water droplet unpresses button
+ 
+ - yj comes to unpress button
+ */
 
 import SwiftUI
 
