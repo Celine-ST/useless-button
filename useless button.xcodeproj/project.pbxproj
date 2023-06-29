@@ -11,6 +11,7 @@
 		9371432C2A46A31B00F6A5DF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9371432B2A46A31B00F6A5DF /* ContentView.swift */; };
 		9371432E2A46A31C00F6A5DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9371432D2A46A31C00F6A5DF /* Assets.xcassets */; };
 		937143312A46A31C00F6A5DF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 937143302A46A31C00F6A5DF /* Preview Assets.xcassets */; };
+		9371433A2A4D5F7500F6A5DF /* struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937143392A4D5F7500F6A5DF /* struct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		9371432B2A46A31B00F6A5DF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9371432D2A46A31C00F6A5DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		937143302A46A31C00F6A5DF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		937143392A4D5F7500F6A5DF /* struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = struct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				937143292A46A31B00F6A5DF /* useless_buttonApp.swift */,
 				9371432B2A46A31B00F6A5DF /* ContentView.swift */,
+				937143392A4D5F7500F6A5DF /* struct.swift */,
 				9371432D2A46A31C00F6A5DF /* Assets.xcassets */,
 				9371432F2A46A31C00F6A5DF /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9371433A2A4D5F7500F6A5DF /* struct.swift in Sources */,
 				9371432C2A46A31B00F6A5DF /* ContentView.swift in Sources */,
 				9371432A2A46A31B00F6A5DF /* useless_buttonApp.swift in Sources */,
 			);
