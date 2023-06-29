@@ -14,14 +14,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var resetMoveNum = 0
+    @State private var resetMoves = [
+        move(image: "catpaw", xOffset: 50, yOffset: 50, spin: 0)]
     var body: some View {
         VStack {
-            Image(systemName: "mail")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Button {
+                resetMoveNum += 1
+            } label: {
+                Text("Click Me!\(resetMoveNum)")
+            }
         }
-        .padding()
     }
 }
 

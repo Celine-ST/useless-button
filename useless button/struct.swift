@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct move {
+    var image: String
+    var xOffset: Int
+    var yOffset: Int
+    var spin: Int
+}
