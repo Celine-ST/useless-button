@@ -15,17 +15,21 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var resetMoveNum = 0
+    @State private var buttonClicked = false
     @State private var resetMoves = [
-        move(image: "", xOffset: 0.0, yOffset: 0.0, width: 0.0, height: 0.0, spin: 0),
-        move(image: "catpaw", xOffset: -50.0, yOffset: -50.0, width: 50.0, height: 50.0, spin: 0)]
+        move(image: "catpaw", xOffset: 0.0, yOffset: 0.0, width: 100.0, height: 100.0, spin: 0)]
     var body: some View {
-        VStack {
-            Image(resetMoves[resetMoveNum % resetMoves.count].image)
-                .resizable()
-                .frame(width: resetMoves[resetMoveNum % resetMoves.count].width, height: resetMoves[resetMoveNum % resetMoves.count].height)
-                .offset(x: resetMoves[resetMoveNum % resetMoves.count].xOffset, y: resetMoves[resetMoveNum % resetMoves.count].yOffset)
+        ZStack {
+                if buttonClicked {
+                    Image(resetMoves[resetMoveNum % resetMoves.count].image)
+                        .resizable()
+                        .frame(width: resetMoves[resetMoveNum % resetMoves.count].width, height: resetMoves[resetMoveNum % resetMoves.count].height)
+                        .offset(x: resetMoves[resetMoveNum % resetMoves.count].xOffset, y: resetMoves[resetMoveNum % resetMoves.count].yOffset)
+                }
             Button {
-                resetMoveNum += 1
+                withAnimation {
+                    buttonClicked = true
+                }
             } label: {
                 Text("Click Me!\(resetMoveNum)")
             }
