@@ -24,6 +24,9 @@ struct ContentView: View {
             } label: {
                 Text("Click Me!\(resetMoveNum)")
             }
+            .padding()
+            .background(.blue)
+            .foregroundColor(.white)
         }
     }
 }
