@@ -4,19 +4,13 @@
 //
 //  Created by Celine Quek on 24/6/23.
 //
-/* hii so um we can put some ideas for ways to unpress the button here
 
- - cloud comes and water droplet unpresses button
- 
- - yj comes to unpress button
- */
 
 import SwiftUI
 
 struct ContentView: View {
     @State private var resetMoveNum = 0
     @State private var numResets = 0
-    @State private var yj = 0
     @State private var buttonClicked = false
     @State private var resetMoves = [
         move(image: "catpaw", xOffset: 0.0, yOffset: 500.0, width: 0.0, height: 0.0, spin: 0),
@@ -99,8 +93,8 @@ struct ContentView: View {
                 } label: {
                     Text(buttonClicked ? "MEOW!" : "Meow")
                         .padding()
-                        .background(buttonClicked ? colors[yj % colors.count] : randomBackgroundColor)
-                        .foregroundColor(buttonClicked ? randomTextColors[yj % randomTextColors.count] : Color(red: Double.random(in: 0...1), green: Double.random(in: 0...1), blue: Double.random(in: 0...1)))
+                        .background(buttonClicked ? colors[resetMoveNum / 2 % colors.count] : randomBackgroundColor)
+                        .foregroundColor(buttonClicked ? randomTextColors[resetMoveNum / 2 % randomTextColors.count] : Color(red: Double.random(in: 0...1), green: Double.random(in: 0...1), blue: Double.random(in: 0...1)))
                         .cornerRadius(20)
                 }
             }
