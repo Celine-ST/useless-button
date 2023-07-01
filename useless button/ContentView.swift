@@ -28,7 +28,7 @@ struct ContentView: View {
         move(image: "yj", xOffset: 0.0, yOffset: 0.0, width: 0.0, height: 0.0, spin: 0),
         move(image: "yj", xOffset: 0.0, yOffset: 0.0, width: 300.0, height: 300.0, spin: 720),
         move(image: "yj2", xOffset: 0.0, yOffset: 0.0, width: 0.0, height: 0.0, spin: 0),
-        move(image: "yj2", xOffset: 0.0, yOffset: 0.0, width: 638.0, height: 391.0, spin: 720)
+        move(image: "yj2", xOffset: 0.0, yOffset: 0.0, width: 338.0, height: 391.0, spin: 720)
     ]
     
     private var colors = [Color.red, Color.green, Color.blue, Color.orange, Color.purple]
@@ -53,6 +53,7 @@ struct ContentView: View {
             Image(resetMoves[resetMoveNum % resetMoves.count].image)
                 .resizable()
                 .frame(width: resetMoves[resetMoveNum % resetMoves.count].width, height: resetMoves[resetMoveNum % resetMoves.count].height)
+                .cornerRadius(resetMoveNum % resetMoves.count == 13 || resetMoveNum % resetMoves.count == 15 ? 100 : 0)
                 .offset(x: resetMoves[resetMoveNum % resetMoves.count].xOffset, y: resetMoves[resetMoveNum % resetMoves.count].yOffset)
                 .rotationEffect(.degrees(resetMoves[resetMoveNum % resetMoves.count].spin))
             
