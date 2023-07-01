@@ -29,7 +29,9 @@ struct ContentView: View {
         move(image: "catpaw", xOffset: 0.0, yOffset: 1500.0, width: 0.0, height: 0.0, spin: 0),
         move(image: "catpaw", xOffset: 0.0, yOffset: 0.0, width: 100.0, height: 100.0, spin: 0),
         move(image: "catpaw2", xOffset: 0.0, yOffset: -1500.0, width: 100.0, height: 100.0, spin: 0),
-        move(image: "catpaw2", xOffset: 0.0, yOffset: 0.0, width: 100.0, height: 100.0, spin: 0)
+        move(image: "catpaw2", xOffset: 0.0, yOffset: 0.0, width: 100.0, height: 100.0, spin: 0),
+        move(image: "yj", xOffset: 0.0, yOffset: 0.0, width: 0.0, height: 0.0, spin: 0),
+        move(image: "yj", xOffset: 0.0, yOffset: 0.0, width: 300.0, height: 300.0, spin: 0)
     ]
     
     private var colors = [Color.red, Color.green, Color.blue, Color.orange, Color.purple]
@@ -57,29 +59,37 @@ struct ContentView: View {
                 .offset(x: resetMoves[resetMoveNum % resetMoves.count].xOffset, y: resetMoves[resetMoveNum % resetMoves.count].yOffset)
             
             if yj >= 7 {
-                Image("yj")
-                    .resizable()
-                    .scaledToFit()
-            }
-            else
-            {
+                Button {
+                    withAnimation {
+                        yj = 0
+                        resetMoveNum = 0
+                    }
+                } label: {
+                    Text("Click to Reset")
+                }
+                .padding()
+                .background(.white)
+                .foregroundColor(.black)
+                .cornerRadius(45)
+                .offset(y: 200)
+            } else {
                 Button {
                     withAnimation {
                         resetMoveNum += 1
                         buttonClicked = true
                         yj += 1
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                        withAnimation {
-                            resetMoveNum -= 1
+                    if yj != 7 {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                                withAnimation {
+                                    resetMoveNum -= 1
+                            }
                         }
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-                        resetMoveNum += 2
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-                        withAnimation {
-                            buttonClicked = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+                                resetMoveNum += 2
+                                withAnimation {
+                                    buttonClicked = false
+                            }
                         }
                     }
                 } label: {
@@ -87,6 +97,7 @@ struct ContentView: View {
                         .padding()
                         .background(buttonClicked ? colors[yj % colors.count] : randomBackgroundColor)
                         .foregroundColor(buttonClicked ? randomTextColors[yj % randomTextColors.count] : Color(red: Double.random(in: 0...1), green: Double.random(in: 0...1), blue: Double.random(in: 0...1)))
+                        .cornerRadius(20)
                 }
             }
         }
