@@ -15,6 +15,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var resetMoveNum = 0
+    @State private var numResets = 0
     @State private var yj = 0
     @State private var buttonClicked = false
     @State private var resetMoves = [
@@ -31,7 +32,9 @@ struct ContentView: View {
         move(image: "catpaw2", xOffset: 0.0, yOffset: -1500.0, width: 100.0, height: 100.0, spin: 0),
         move(image: "catpaw2", xOffset: 0.0, yOffset: 0.0, width: 100.0, height: 100.0, spin: 0),
         move(image: "yj", xOffset: 0.0, yOffset: 0.0, width: 0.0, height: 0.0, spin: 0),
-        move(image: "yj", xOffset: 0.0, yOffset: 0.0, width: 300.0, height: 300.0, spin: 0)
+        move(image: "yj", xOffset: 0.0, yOffset: 0.0, width: 300.0, height: 300.0, spin: 720),
+        move(image: "yj2", xOffset: 0.0, yOffset: 0.0, width: 0.0, height: 0.0, spin: 0),
+        move(image: "yj2", xOffset: 0.0, yOffset: 0.0, width: 300.0, height: 300.0, spin: 720)
     ]
     
     private var colors = [Color.red, Color.green, Color.blue, Color.orange, Color.purple]
@@ -57,12 +60,13 @@ struct ContentView: View {
                 .resizable()
                 .frame(width: resetMoves[resetMoveNum % resetMoves.count].width, height: resetMoves[resetMoveNum % resetMoves.count].height)
                 .offset(x: resetMoves[resetMoveNum % resetMoves.count].xOffset, y: resetMoves[resetMoveNum % resetMoves.count].yOffset)
+                .rotationEffect(.degrees(resetMoves[resetMoveNum % resetMoves.count].spin))
             
-            if yj >= 7 {
+            if resetMoveNum >= 13 {
                 Button {
                     withAnimation {
-                        yj = 0
                         resetMoveNum = 0
+                        numResets += 1
                     }
                 } label: {
                     Text("Click to Reset")
@@ -77,9 +81,8 @@ struct ContentView: View {
                     withAnimation {
                         resetMoveNum += 1
                         buttonClicked = true
-                        yj += 1
                     }
-                    if yj != 7 {
+                    if resetMoveNum < 13 {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                                 withAnimation {
                                     resetMoveNum -= 1
@@ -89,6 +92,7 @@ struct ContentView: View {
                                 resetMoveNum += 2
                                 withAnimation {
                                     buttonClicked = false
+                                    
                             }
                         }
                     }

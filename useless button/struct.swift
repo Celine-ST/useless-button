@@ -13,5 +13,5 @@ struct move {
     var yOffset: Double
     var width: Double
     var height: Double
-    var spin: Int
+    var spin: Double
 }
