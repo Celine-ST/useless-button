@@ -18,16 +18,18 @@ struct ContentView: View {
     @State private var yj = 0
     @State private var buttonClicked = false
     @State private var resetMoves = [
-        move(image: "catpaw", xOffset: 0.0, yOffset: 300.0, width: 0.0, height: 0.0, spin: 0),
+        move(image: "catpaw", xOffset: 0.0, yOffset: 500.0, width: 0.0, height: 0.0, spin: 0),
         move(image: "catpaw", xOffset: 0.0, yOffset: 0.0, width: 100.0, height: 100.0, spin: 0),
-        move(image: "catpaw2", xOffset: 0.0, yOffset: -490.0, width: 100.0, height: 100.0, spin: 0),
+        move(image: "catpaw2", xOffset: 0.0, yOffset: -500.0, width: 100.0, height: 100.0, spin: 0),
         move(image: "catpaw2", xOffset: 0.0, yOffset: 0.0, width: 100.0, height: 100.0, spin: 0),
-        move(image: "catpaw", xOffset: 0.0, yOffset: 300.0, width: 0.0, height: 0.0, spin: 0),
+        move(image: "catpaw", xOffset: 0.0, yOffset: 1000.0, width: 0.0, height: 0.0, spin: 0),
         move(image: "catpaw", xOffset: 0.0, yOffset: 0.0, width: 100.0, height: 100.0, spin: 0),
-        move(image: "catpaw2", xOffset: 0.0, yOffset: -490.0, width: 100.0, height: 100.0, spin: 0),
+        move(image: "catpaw2", xOffset: 0.0, yOffset: -1000.0, width: 100.0, height: 100.0, spin: 0),
         move(image: "catpaw2", xOffset: 0.0, yOffset: 0.0, width: 100.0, height: 100.0, spin: 0),
-        move(image: "yj", xOffset: 0.0, yOffset: 0.0, width: 0.0, height: 0.0, spin: 0),
-        move(image: "yj", xOffset: 0.0, yOffset: 0.0, width: 300.0, height: 300.0, spin: 0)
+        move(image: "catpaw", xOffset: 0.0, yOffset: 1500.0, width: 0.0, height: 0.0, spin: 0),
+        move(image: "catpaw", xOffset: 0.0, yOffset: 0.0, width: 100.0, height: 100.0, spin: 0),
+        move(image: "catpaw2", xOffset: 0.0, yOffset: -1500.0, width: 100.0, height: 100.0, spin: 0),
+        move(image: "catpaw2", xOffset: 0.0, yOffset: 0.0, width: 100.0, height: 100.0, spin: 0)
     ]
     
     private var colors = [Color.red, Color.green, Color.blue, Color.orange, Color.purple]
@@ -54,8 +56,8 @@ struct ContentView: View {
                 .frame(width: resetMoves[resetMoveNum % resetMoves.count].width, height: resetMoves[resetMoveNum % resetMoves.count].height)
                 .offset(x: resetMoves[resetMoveNum % resetMoves.count].xOffset, y: resetMoves[resetMoveNum % resetMoves.count].yOffset)
             
-            if yj >= 20 {
-                Image("yj needs help")
+            if yj >= 7 {
+                Image("yj")
                     .resizable()
                     .scaledToFit()
             }
